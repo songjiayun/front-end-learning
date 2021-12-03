@@ -4,3 +4,4 @@
 ### `npm start`
 ### `npm run build`
 
+javascript几个重要知识点
