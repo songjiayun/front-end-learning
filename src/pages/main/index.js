@@ -23,7 +23,9 @@ function Main() {
                 </Col>
                 <Col flex={'auto'}>
                     <MyHeader></MyHeader>
-                    <RouterLayout></RouterLayout>
+                    <div className={styles['content-block']}>
+                        <RouterLayout></RouterLayout>
+                    </div>
                 </Col>
             </Row>
         </React.Fragment>

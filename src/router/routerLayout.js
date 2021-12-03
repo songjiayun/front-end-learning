@@ -3,7 +3,7 @@ import React, { lazy, Suspense } from 'react';
 import { Switch, Route, Redirect } from 'react-router-dom';
 
 const home = lazy(() => import('@/pages/home'));
-const project = lazy(() => import('@/pages/project'));
+const javascript = lazy(() => import('@/pages/javascript'));
 
 function LayoutRoute() {
     return (
@@ -11,7 +11,7 @@ function LayoutRoute() {
             <Switch>
                 <Redirect exact from={'/'} to={'/home'}></Redirect>
                 <Route path={'/home'} component={home}></Route>
-                <Route path={'/project'} component={project}></Route>
+                <Route path={'/javascript/points'} component={javascript}></Route>
             </Switch>
         </Suspense>
     );

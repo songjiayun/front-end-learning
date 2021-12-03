@@ -27,7 +27,9 @@ function MyHeader() {
             <Col>
                 <Button type={'text'} icon={collapsed ? <MenuFoldOutlined /> : <MenuUnfoldOutlined />} onClick={toggleMenu}></Button>
             </Col>
-            <Col>222</Col>
+            <Col>
+                <img className={styles['user-avatar']} src={require('@/assets/common/default-avatar.png').default} alt={''}></img>
+            </Col>
         </Row>
     );
 }

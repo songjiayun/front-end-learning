@@ -3,6 +3,8 @@ import { Menu } from 'antd';
 import styles from './index.module.less';
 import { useHistory } from 'react-router-dom';
 import { useMappedState } from 'redux-react-hook';
+import SubMenu from 'antd/lib/menu/SubMenu';
+import { HomeOutlined, StarOutlined, SmileOutlined } from '@ant-design/icons';
 
 function MyNaving() {
     let history = useHistory();
@@ -23,11 +25,17 @@ function MyNaving() {
     return (
         <div className={styles['naving-block']}>
             {/* logo */}
-            <div className={styles['logo-block']}>logo</div>
+            <div className={styles['logo-block']}>{!collapsed ? '前端学习基地' : <img height={30} src={require('@/assets/common/logo.png').default} alt={''} />}</div>
             {/* 导航 */}
             <Menu mode={'inline'} className={styles['menu-block']} onClick={menuHandle} inlineCollapsed={collapsed}>
-                <Menu.Item key={'/home'}>home</Menu.Item>
-                <Menu.Item key={'/project'}>project</Menu.Item>
+                <Menu.Item key={'/home'} icon={<HomeOutlined />}>
+                    home
+                </Menu.Item>
+                <SubMenu key={'/javascript'} title={'JavaScript'} icon={<StarOutlined />}>
+                    <Menu.Item key={'/javascript/points'} icon={<SmileOutlined />}>
+                        几个知识点
+                    </Menu.Item>
+                </SubMenu>
             </Menu>
         </div>
     );
