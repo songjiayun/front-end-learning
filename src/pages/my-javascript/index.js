@@ -2,8 +2,8 @@ import React from 'react';
 import styles from './index.module.less';
 import { Tabs } from 'antd';
 
-import Prototype from './prototype/index'
- 
+import Prototype from './prototype/index';
+
 function JavaScript() {
     return (
         <div className={styles['content-block']}>

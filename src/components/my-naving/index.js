@@ -31,9 +31,14 @@ function MyNaving() {
                 <Menu.Item key={'/home'} icon={<HomeOutlined />}>
                     home
                 </Menu.Item>
-                <SubMenu key={'/javascript'} title={'JavaScript'} icon={<StarOutlined />}>
-                    <Menu.Item key={'/javascript/points'} icon={<SmileOutlined />}>
+                <SubMenu key={'/my-js'} title={'JavaScript'} icon={<StarOutlined />}>
+                    <Menu.Item key={'/my-js/points'} icon={<SmileOutlined />}>
                         几个知识点
+                    </Menu.Item>
+                </SubMenu>
+                <SubMenu key={'/my-react'} title={'React'} icon={<StarOutlined />}>
+                    <Menu.Item key={'/my-react/antd'} icon={<SmileOutlined />}>
+                        antd
                     </Menu.Item>
                 </SubMenu>
             </Menu>
