@@ -1,0 +1,39 @@
+<!-- 创建10个a标签，点击的时候弹出相应的序号 -->
+
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8" />
+        <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+        <title>创建10个a标签，点击的时候弹出相应的序号</title>
+    </head>
+    <body></body>
+    <script>
+        // 错误的写法
+        /* let i, a;
+        for (i = 0; i < 10; i++) {
+            a = document.createElement('a');
+            a.innerHTML = i + '<br>';
+            a.addEventListener('click', function (e) {
+                e.preventDefault();
+                alert(i);
+            });
+            document.body.appendChild(a);
+        } */
+
+        // 正确的写法
+        var i;
+        for (i = 0; i < 10; i++) {
+            (function (i) {
+                var a = document.createElement('a');
+                a.innerHTML = i + '<br>';
+                a.addEventListener('click', function (e) {
+                    e.preventDefault();
+                    alert(i);
+                });
+                document.body.appendChild(a);
+            })(i);
+        }
+    </script>
+</html>
