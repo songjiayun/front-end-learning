@@ -16,7 +16,7 @@ class Student extends People {
     constructor(name, number) {
         super(name);
         this.number = number;
-    } 
+    }
 
     sayHi() {
         console.log('姓名：' + this.name + ' 学号：' + this.number);
@@ -35,3 +35,9 @@ hejunlin.eat();
  * 姓名：贺峻霖 学号：100
  * 贺峻霖 eat something!
  */
+
+console.log('typeof People', typeof People); // function
+
+console.log('__proto__', hejunlin.__proto__); // People {}
+console.log('prototype', Student.prototype); // People {}
+ 
