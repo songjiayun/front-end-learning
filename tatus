@@ -1,0 +1,65 @@
+[1mdiff --git "a/src/pages/my-javascript/05 \345\216\237\345\236\213\345\222\214\345\216\237\345\236\213\351\223\276/Q.md" "b/src/pages/my-javascript/05 \345\216\237\345\236\213\345\222\214\345\216\237\345\236\213\351\223\276/Q.md"[m
+[1mindex 85fa1f5..d526439 100644[m
+[1m--- "a/src/pages/my-javascript/05 \345\216\237\345\236\213\345\222\214\345\216\237\345\236\213\351\223\276/Q.md"[m	
+[1m+++ "b/src/pages/my-javascript/05 \345\216\237\345\236\213\345\222\214\345\216\237\345\236\213\351\223\276/Q.md"[m	
+[36m@@ -25,4 +25,30 @@[m [mclass[m
+ [m
+ [m
+ # 原型和原型链[m
+[31m-原型[m
+\ No newline at end of file[m
+[32m+[m[32m原型关系[m
+[32m+[m[32m1、每个class都有显示原型prototype[m
+[32m+[m[32m2、每个实例都有隐式原型__proto__[m
+[32m+[m[32m3、实例的__proto__指向对应class的prototype[m
+[32m+[m
+[32m+[m[32m基于原型的执行原则[m
+[32m+[m[32m1、获取属性或执行方法时[m
+[32m+[m[32m2、先在自身属性和方法寻找[m
+[32m+[m[32m3、如果找不到，则自动去隐式原型__proto__中查找[m
+[32m+[m
+[32m+[m[32m原型链（画一遍）[m
+[32m+[m
+[32m+[m[32m再看instanceof[m
+[32m+[m
+[32m+[m[32mclass是ES6语法规范，由ECMA委员会发布[m
+[32m+[m
+[32m+[m[32mECMA只规定语法规则，即我们代码的书写规范，不规定如何实现[m
+[32m+[m
+[32m+[m[32m以上实现方式都是V8引擎的实现方式，也是主流的[m
+[32m+[m
+[32m+[m
+[32m+[m[32m小结：[m
+[32m+[m[32mclass 和 继承，结合上面手写jQuery的示例来理解[m
+[32m+[m
+[32m+[m[32minstanceof[m
+[32m+[m
+[32m+[m[32m原型和原型链：图示 & 执行规则[m
+\ No newline at end of file[m
+[1mdiff --git "a/src/pages/my-javascript/05 \345\216\237\345\236\213\345\222\214\345\216\237\345\236\213\351\223\276/class.js" "b/src/pages/my-javascript/05 \345\216\237\345\236\213\345\222\214\345\216\237\345\236\213\351\223\276/class.js"[m
+[1mindex 47ebd5c..0413483 100644[m
+[1m--- "a/src/pages/my-javascript/05 \345\216\237\345\236\213\345\222\214\345\216\237\345\236\213\351\223\276/class.js"[m	
+[1m+++ "b/src/pages/my-javascript/05 \345\216\237\345\236\213\345\222\214\345\216\237\345\236\213\351\223\276/class.js"[m	
+[36m@@ -18,6 +18,8 @@[m [mconst hejunlin = new Student('贺峻霖', 100);[m
+ console.log(hejunlin.name);[m
+ console.log(hejunlin.number);[m
+ hejunlin.sayHi();[m
+[32m+[m[32mconsole.log(hejunlin.hasOwnProperty('name')); // true[m
+[32m+[m[32mconsole.log(hejunlin.hasOwnProperty('sayHi')); // false[m
+ /**[m
+  * 贺峻霖[m
+  * 100[m
+[1mdiff --git "a/src/pages/my-javascript/05 \345\216\237\345\236\213\345\222\214\345\216\237\345\236\213\351\223\276/\347\273\247\346\211\277.js" "b/src/pages/my-javascript/05 \345\216\237\345\236\213\345\222\214\345\216\237\345\236\213\351\223\276/\347\273\247\346\211\277.js"[m
+[1mindex a1ac2c3..cd35235 100644[m
+[1m--- "a/src/pages/my-javascript/05 \345\216\237\345\236\213\345\222\214\345\216\237\345\236\213\351\223\276/\347\273\247\346\211\277.js"[m	
+[1m+++ "b/src/pages/my-javascript/05 \345\216\237\345\236\213\345\222\214\345\216\237\345\236\213\351\223\276/\347\273\247\346\211\277.js"[m	
+[36m@@ -40,4 +40,7 @@[m [mconsole.log('typeof People', typeof People); // function[m
+ [m
+ console.log('__proto__', hejunlin.__proto__); // People {}[m
+ console.log('prototype', Student.prototype); // People {}[m
+[31m- [m
+\ No newline at end of file[m
+[32m+[m
+[32m+[m[32mconsole.log('test01', Student.prototype.__proto__);[m
+[32m+[m[32mconsole.log('test02', People.prototype);[m
+[32m+[m[32mconsole.log('test03', People.prototype === Student.prototype.__proto__);[m

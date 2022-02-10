@@ -18,6 +18,8 @@ const hejunlin = new Student('贺峻霖', 100);
 console.log(hejunlin.name);
 console.log(hejunlin.number);
 hejunlin.sayHi();
+console.log(hejunlin.hasOwnProperty('name')); // true
+console.log(hejunlin.hasOwnProperty('sayHi')); // false
 /**
  * 贺峻霖
  * 100

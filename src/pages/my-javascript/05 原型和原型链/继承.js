@@ -40,4 +40,7 @@ console.log('typeof People', typeof People); // function
 
 console.log('__proto__', hejunlin.__proto__); // People {}
 console.log('prototype', Student.prototype); // People {}
- 
+
+console.log('test01', Student.prototype.__proto__);
+console.log('test02', People.prototype);
+console.log('test03', People.prototype === Student.prototype.__proto__);

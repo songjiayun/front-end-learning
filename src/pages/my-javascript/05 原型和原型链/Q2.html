@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8" />
+        <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+        <title>手写一个简易的jQuery，考虑插件和扩展性</title>
+    </head>
+    <body>
+        <p>111</p>
+        <p>222</p>
+        <p>333</p>
+    </body>
+    <script>
+        class jQuery {
+            constructor(selector) {
+                const result = document.querySelectorAll(selector);
+                const length = result.length;
+                for (let i = 0; i < length; i++) {
+                    this[i] = result[i];
+                }
+                this.length = length;
+                // 类数组 实际上 是一个对象
+            }
+            get(index) {
+                return this[index];
+            }
+            each(fn) {
+                for (let i = 0; i < this.length; i++) {
+                    const elem = this[i];
+                    fn(elem);
+                }
+            }
+            on(type, fn) {
+                return this.each((elem) => {
+                    elem.addEventListener(type, fn, false);
+                });
+            }
+        }
+
+        // 可以扩展更多DOM API
+
+        // 插件
+        jQuery.prototype.dialog = function (info) {
+            alert(info);
+        };
+
+        // 造轮子
+        class myJQuery extends jQuery {
+            constructor(selector) {
+                super(selector);
+            }
+            // 扩展自己的方法
+            addClass(className) {}
+
+            style(data) {}
+        }
+
+        const $p = new jQuery('p');
+        console.log($p);
+
+        console.log($p.get(1));
+
+        console.log($p.each((elem) => console.log(elem.nodeName)));
+
+        $p.on('click', () => alert('clicked'));
+
+        $p.dialog('an=bc'); // 插件机制
+    </script>
+</html>
