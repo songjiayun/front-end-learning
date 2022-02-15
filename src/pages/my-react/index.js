@@ -3,6 +3,7 @@ import Loading from '@/components/my-loading';
 import { Switch, Route } from 'react-router-dom';
 
 const MyAntd = lazy(() => import('@/pages/my-react/my-antd'));
+const MyComponents = lazy(() => import('@/pages/my-react/my-components'));
 
 function MyReact({ match }) {
     return (
@@ -10,6 +11,7 @@ function MyReact({ match }) {
             <Switch>
                 <Route exact path={match.path} component={MyAntd}></Route>
                 <Route path={`${match.path}/antd`} component={MyAntd}></Route>
+                <Route path={`${match.path}/components`} component={MyComponents}></Route>
             </Switch>
         </Suspense>
     );

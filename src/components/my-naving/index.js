@@ -40,6 +40,9 @@ function MyNaving() {
                     <Menu.Item key={'/my-react/antd'} icon={<SmileOutlined />}>
                         antd
                     </Menu.Item>
+                    <Menu.Item key={'/my-react/components'} icon={<SmileOutlined />}>
+                        components
+                    </Menu.Item>
                 </SubMenu>
             </Menu>
         </div>
